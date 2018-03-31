@@ -15,8 +15,12 @@
           %hr.w3-opacity/
           %p Just put your telephone number and the name of your favourite artist
           %p
-            %button.w3-button.w3-block.w3-green.w3-round{:onclick => "document.getElementById('download').style.display='block'"}
-              Download
+          = simple_form_for(User.new, method: :post, url: send_sms_path) do |f|
+            = f.input :telephone, label: 'Your telephone number please:', include_blank: false, prompt: "+3(80)"
+            = simple_fields_for Artist.new do |a|
+              = a.input :name, label: "Your favourite artist's name:", include_blank: false
+            %button.w3-button.w3-block.w3-green.w3-round
+              = f.submit 'Receive sms'
               %i.fa.fa-android
               %i.fa.fa-apple
               %i.fa.fa-windows
