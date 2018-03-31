@@ -16,7 +16,7 @@ class HomeController < ApplicationController
         to: users_phone,
         body: body
       )
-    rescue Twilio::REST::RequestError => e
+    rescue Twilio::REST::RestException => e
       print e.message
     end
   end
