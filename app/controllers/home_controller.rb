@@ -25,7 +25,7 @@ class HomeController < ApplicationController
 
   def boot_twilio
     RSpotify.authenticate("3a6010e0d5eb491996b9b10ec5722bae", "6b4b95f225134775a2beb8de051b55b6")
-    @client = Twilio::REST::Client.new 'AC64d8478d2a10c578da81a308acaea13c', '06ec3258a72067e7bca5c55ccc3cdf87'
+    @client = Twilio::REST::Client.new 'ACf9740b6ac694a9741c96a7a4b4adfb42', '6051d7cd115c5d52d4a61ae1e8ec083c'
   end
 
 end
