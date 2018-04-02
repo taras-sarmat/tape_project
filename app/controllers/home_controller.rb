@@ -3,8 +3,8 @@ class HomeController < ApplicationController
   end
 
   def send_sms
-    users_phone = params[:user][:telephone]
-    artist = params[:artist][:name]
+    users_phone = params[:number]
+    artist = params[:artist]
     boot_twilio
 
     artist = RSpotify::Artist.search(artist).first
@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     body = "#{artist.name}'s top track: #{track.name}"
     begin
       sms = @client.messages.create(
-        from: '+12676898582',
+        from: '+18317132777',
         to: users_phone,
         body: body
       )
@@ -27,23 +27,4 @@ class HomeController < ApplicationController
     RSpotify.authenticate("3a6010e0d5eb491996b9b10ec5722bae", "6b4b95f225134775a2beb8de051b55b6")
     @client = Twilio::REST::Client.new 'ACf9740b6ac694a9741c96a7a4b4adfb42', '6051d7cd115c5d52d4a61ae1e8ec083c'
   end
-
 end
-
-# RSpotify.authenticate("3a6010e0d5eb491996b9b10ec5722bae", "6b4b95f225134775a2beb8de051b55b6")
-
-# artist = RSpotify::Artist.search("Justin Bieber").first
-# track = artist.top_tracks(:US).first
-
-# body = "#{artist.name}'s top track: #{track.name}"
-
-# @client = Twilio::REST::Client.new 'AC64d8478d2a10c578da81a308acaea13c', '06ec3258a72067e7bca5c55ccc3cdf87'
-
-# TEST_PHONE_NUMBER = '+380685424117'
-# @client.api.account.messages.create({
-#   from: '+12676898582',
-#   to: ENV['TEST_PHONE_NUMBER'],
-#   body: body,
-# })
-
-# puts "Texted #{ENV['TEST_PHONE_NUMBER']}"

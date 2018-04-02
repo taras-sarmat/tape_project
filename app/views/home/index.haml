@@ -19,8 +19,8 @@
             = f.input :telephone, label: 'Your telephone number please:', include_blank: false, prompt: "+3(80)"
             = simple_fields_for Artist.new do |a|
               = a.input :name, label: "Your favourite artist's name:", include_blank: false
-            %button.w3-button.w3-block.w3-green.w3-round
-              = f.submit 'Receive sms'
+            %button.w3-button.w3-block.w3-green.w3-round{:id => "submit_button"}
+              = f.submit 'Receive sms', :id => "receive_sms"
               %i.fa.fa-android
               %i.fa.fa-apple
               %i.fa.fa-windows
