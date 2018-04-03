@@ -8,8 +8,17 @@ default: &default
 development:
   adapter: postgresql
   encoding: unicode
-  database: tape-test
+  database: database
   pool: 5
-  username: taras-sarmat
-  password: 123cool123
+  username: username
+  password: password
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: database
+  pool: 5
+  username: username
+  password: password
   host: localhost

@@ -41,7 +41,7 @@ $(document).ready(function(){
             if (requestObject.status == 404) {
               alert("Please enter an existing artist!");
             } else {
-              alert("oops something went wrong...");
+              alert("Please enter a valid number!");
             }
         }
       });

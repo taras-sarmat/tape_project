@@ -22,9 +22,8 @@ class HomeController < ApplicationController
         to: users_phone,
         body: body
       )
-    rescue Twilio::REST::TwilioError => e
-      puts e.message
-      return render :json => {}, :status => 500
+    rescue Twilio::REST::RestError => error
+      return render :json => {}, :status => 400
     end
   end
 
