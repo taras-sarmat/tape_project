@@ -36,6 +36,13 @@ $(document).ready(function(){
         url: '/send_sms?number=' + encodeURIComponent(number) + '&artist=' + artist,
         success: function(data) {
             alert("Well done! Wait for a sms!");
+        },
+        error: function(requestObject){
+            if (requestObject.status == 404) {
+              alert("Please enter an existing artist!");
+            } else {
+              alert("oops something went wrong...");
+            }
         }
       });
   });

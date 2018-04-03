@@ -1,7 +1,14 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 #receive_sms {
   background-color: #4CAF50!important;
+}
+.w3-content.w3-black {
+  max-width:1500px;
+}
+.w3-display-left.w3-padding.w3-hide-small {
+  width:35%; 
+}
+.mySlides img {
+  min-width:500px; 
+  width: 1500; 
+  height: 1000;
 }

@@ -8,8 +8,14 @@ class HomeController < ApplicationController
     boot_twilio
 
     artist = RSpotify::Artist.search(artist).first
-    track = artist.top_tracks(:US).first
-    body = "#{artist.name}'s top track: #{track.name}"
+
+    if artist.nil?
+      return render :json => {}, :status => 404
+    else
+      track = artist.top_tracks(:US).first
+      body = "#{artist.name}'s top track: #{track.name}"
+    end
+
     begin
       sms = @client.messages.create(
         from: '+18317132777',
@@ -17,7 +23,8 @@ class HomeController < ApplicationController
         body: body
       )
     rescue Twilio::REST::TwilioError => e
-      print e.message
+      puts e.message
+      return render :json => {}, :status => 500
     end
   end
 
