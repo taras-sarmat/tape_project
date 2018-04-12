@@ -3,7 +3,7 @@ $(document).ready(function(){
   $("#submit_button").click(function(){
     event.preventDefault();
 
-    number = $('#user_telephone').val()
+    var number = $('#user_telephone').val()
 
     if (number == "") {
         alert("Please enter you telephone number");
@@ -23,7 +23,7 @@ $(document).ready(function(){
         return false;
     }
 
-    artist = $('#artist_name').val()
+    var artist = $('#artist_name').val()
 
     if (artist == "") {
         alert("Please enter name of your favourite artist. Example: Justin Bieber");
@@ -41,7 +41,7 @@ $(document).ready(function(){
             if (requestObject.status == 404) {
               alert("Please enter an existing artist!");
             } else {
-              alert("Please enter a valid number!");
+              alert("Please enter a valid data!");
             }
         }
       });
