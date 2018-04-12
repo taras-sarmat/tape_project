@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   end
 
   def send_sms
-
     users_phone = params[:number]
     artist = params[:artist]
     boot_twilio

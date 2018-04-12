@@ -3,7 +3,7 @@ $(document).ready(function(){
   $("#submit_button").click(function(){
     event.preventDefault();
 
-    var number = $('#user_telephone').val()
+    var number = $('#user_input_telephone').val()
 
     if (number == "") {
         alert("Please enter you telephone number");
@@ -23,7 +23,7 @@ $(document).ready(function(){
         return false;
     }
 
-    var artist = $('#artist_name').val()
+    var artist = $('#user_input_artist').val()
 
     if (artist == "") {
         alert("Please enter name of your favourite artist. Example: Justin Bieber");

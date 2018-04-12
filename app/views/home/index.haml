@@ -11,10 +11,9 @@
           %hr.w3-opacity/
           %p Just put your telephone number and the name of your favourite artist
           %p
-          = simple_form_for(User.new, method: :post, url: send_sms_path) do |f|
-            = f.input :telephone, label: 'Your telephone number please:'
-            = simple_fields_for Artist.new do |a|
-              = a.input :name, label: "Your favourite artist's name:"
+          = form_for :user_input, url: send_sms_path do |f|
+            = f.text_field :telephone, label: 'Your telephone number please:'
+            = f.text_field :artist, label: "Your favourite artist's name:"
             %button.w3-button.w3-block.w3-green.w3-round{:id => "submit_button"}
               = f.submit 'Receive sms', :id => "receive_sms"
 
